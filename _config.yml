@@ -11,7 +11,7 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes"
+# remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -131,26 +131,26 @@ author:
 
 
 #Site Header
-header:
-  links:
-#     - label: "Twitter"
-#       icon: "fab fa-fw fa-twitter-square"
-      # url:
-#     - label: "Facebook"
-#       icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/michaeljwilt"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/michaeljwilt/"
-    - label: "Tableau"
-      icon: "fab fa-fw fa-tableau"
-      url: "https://public.tableau.com/app/profile/michaeljwilt"
-    - label: "Podcast"
-      icon: "fab fa-fw fa-spotify"
-      url: "https://open.spotify.com/show/1sboV0Z07vI2jIV87vhyaQ"
+# header:
+#   links:
+# #     - label: "Twitter"
+# #       icon: "fab fa-fw fa-twitter-square"
+#       # url:
+# #     - label: "Facebook"
+# #       icon: "fab fa-fw fa-facebook-square"
+#       # url:
+#     - label: "GitHub"
+#       icon: "fab fa-fw fa-github"
+#       url: "https://github.com/michaeljwilt"
+#     - label: "LinkedIn"
+#       icon: "fab fa-fw fa-linkedin"
+#       url: "https://www.linkedin.com/in/michaeljwilt/"
+#     - label: "Tableau"
+#       icon: "fab fa-fw fa-tableau"
+#       url: "https://public.tableau.com/app/profile/michaeljwilt"
+#     - label: "Podcast"
+#       icon: "fab fa-fw fa-spotify"
+#       url: "https://open.spotify.com/show/1sboV0Z07vI2jIV87vhyaQ"
 # Site Footer
 footer:
   links:
