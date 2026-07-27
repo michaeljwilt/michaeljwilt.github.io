@@ -31,7 +31,7 @@ html.lenis, html.lenis body { height: auto; }
 body {
   background: var(--void);
   color: var(--white);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   font-weight: 300;
   line-height: 1.65;
   overflow-x: hidden;
@@ -40,12 +40,10 @@ a { color: inherit; text-decoration: none; }
 button { background: none; border: none; cursor: pointer; font: inherit; color: inherit; }
 img, svg { display: block; max-width: 100%; }
 
-.mono { font-family: 'JetBrains Mono', monospace; }
+.mono { font-family: var(--font-mono), monospace; }
 
 /* ═══ CUSTOM CURSOR (fine pointers only, enabled via JS) ═══ */
 #cursor-dot, #cursor-ring { display: none; }
-body.has-cursor { cursor: none; }
-body.has-cursor a, body.has-cursor button { cursor: none; }
 body.has-cursor #cursor-dot {
   display: block;
   position: fixed;
@@ -78,7 +76,7 @@ body.has-cursor #cursor-ring.is-active {
   backdrop-filter: blur(2px);
 }
 #cursor-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   color: var(--teal);
@@ -127,7 +125,7 @@ body.has-cursor #cursor-ring.is-active {
 .grad-orb-3 { width: 520px; height: 520px; bottom: -180px; left: 30vw; background: var(--amber); opacity: 0.10; }
 
 /* ═══ TYPOGRAPHY ═══ */
-h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
+h1, h2, h3 { font-family: var(--font-display), sans-serif; line-height: 1.12; }
 .grad-text {
   background: linear-gradient(100deg, var(--teal), var(--amber));
   -webkit-background-clip: text;
@@ -161,7 +159,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
 /* ═══ BUTTONS ═══ */
 .btn {
   display: inline-block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-weight: 500;
   font-size: 0.95rem;
   padding: 13px 28px;
@@ -216,7 +214,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
   display: flex;
   align-items: baseline;
   gap: 10px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 .logo-mark { font-weight: 700; font-size: 1.25rem; color: var(--teal); }
 .logo-full { font-weight: 500; font-size: 0.95rem; color: var(--muted); }
@@ -350,7 +348,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
   will-change: transform;
 }
 .marquee-track span {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-weight: 600;
   font-size: clamp(1.2rem, 3vw, 2rem);
   letter-spacing: 0.06em;
@@ -422,7 +420,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
 #obsession-chart { width: 100%; height: clamp(220px, 36vw, 340px); }
 #chart-grid line { stroke: rgba(255, 255, 255, 0.05); }
 #chart-labels text {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 12px;
   fill: var(--faint);
 }
@@ -474,7 +472,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
 }
 .service-name {
   grid-area: name;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-weight: 600;
   font-size: clamp(1.3rem, 3.4vw, 2.1rem);
   transition: color 0.25s;
@@ -568,7 +566,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
   border-style: dashed;
 }
 .project-more-card > .mono { font-size: 0.7rem; letter-spacing: 0.14em; color: var(--faint); margin: 0; }
-.more-links { display: flex; gap: 22px; font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 600; }
+.more-links { display: flex; gap: 22px; font-family: var(--font-display), sans-serif; font-size: 1.3rem; font-weight: 600; }
 
 /* ═══ STUDIO ═══ */
 .studio-card {
@@ -609,7 +607,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
 .contact-inner .section-intro { margin-left: auto; margin-right: auto; }
 .contact-email {
   display: inline-block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-size: clamp(1.3rem, 4.4vw, 2.6rem);
   font-weight: 600;
   margin-bottom: 40px;
@@ -627,7 +625,6 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
   color: transparent;
 }
 .contact-email:hover .char { transform: translateY(-6px); }
-.contact-email .char:nth-child(2n):hover,
 .contact-email:hover .char:nth-child(2n) { transition-delay: 0.03s; }
 .contact-email:hover .char:nth-child(3n) { transition-delay: 0.06s; }
 .social-row {
@@ -692,7 +689,6 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .logo-full { display: none; }
-  /* horizontal gallery falls back to vertical stack */
   .hpin { min-height: 0; padding: var(--section-pad) 0 40px; }
   .htrack { flex-direction: column; width: 100%; }
   .project { width: 100%; min-height: 0; }

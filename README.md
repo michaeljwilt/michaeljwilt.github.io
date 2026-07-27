@@ -1,33 +1,32 @@
-# michaeljwilt.github.io
+# michaelwilt — personal site
 
 Personal website for Michael Wilt — builder, data guy, dad.
 
-Live at [michaeljwilt.github.io](https://michaeljwilt.github.io).
-
 ## Stack
 
-Hand-crafted static site (same approach as [Brilliant Disruptions](https://brilliantdisruptions.com)):
+- **Next.js 16** (App Router) + React 19 + TypeScript
+- **GSAP 3.15** + ScrollTrigger for motion, **Lenis** for smooth scrolling
+- Fonts self-hosted via `next/font` (Space Grotesk / Inter / JetBrains Mono)
+- Deploys to **Vercel** (any static host works for now; API routes planned for the
+  "ask my site" terminal)
 
-- Plain HTML / CSS / vanilla JS — no build step
-- [GSAP + ScrollTrigger](https://gsap.com/) for scroll reveals (CDN)
-- Space Grotesk / Inter / JetBrains Mono via Google Fonts
-- Hosted on GitHub Pages (`.nojekyll` — no Jekyll processing)
+## Develop
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+```
 
 ## Structure
 
 ```
-index.html      single-page site (hero, about, work, projects, studio, contact)
-css/main.css    design system + all styles
-js/main.js      starfield background, nav, scroll reveals
-assets/         images
+app/            layout (fonts, metadata), page, globals.css, icon
+components/     one component per section + Cursor, Background, MotionRoot
+lib/            content data (projects, services, socials) and chart geometry
+public/assets/  images
 ```
 
-## Editing
-
-It's just files — edit and push. To preview locally:
-
-```
-python3 -m http.server 8000
-```
-
-then open http://localhost:8000.
+`components/MotionRoot.tsx` is the motion engine: Lenis + ScrollTrigger wiring,
+reveals, marquees, magnetic elements, tilt cards, the pinned horizontal gallery,
+and scroll-progress. Content edits usually live in `lib/data.ts`.
