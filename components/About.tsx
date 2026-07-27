@@ -9,7 +9,7 @@ export default function About() {
           <div className="about-photo-wrap reveal" id="photo-tilt">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/michael.png"
+              src="/assets/michael.jpg"
               alt="Michael Wilt smiling in a ball cap"
               className="about-photo"
               width={280}
