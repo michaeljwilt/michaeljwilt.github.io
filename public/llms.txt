@@ -20,6 +20,8 @@
 
 ## Selected projects
 
+- TokenWatch (Brilliant Disruptions): https://brilliantdisruptions.com/projects/tokenwatch/
+- JARVIS (Brilliant Disruptions): https://brilliantdisruptions.com/projects/jarvis/
 - Traveller Character Creation: https://github.com/michaeljwilt/traveller-character-creation
 - Podcast KPI Dashboard: https://github.com/michaeljwilt/podcast_kpi_dashboard
 - Subscriptions Dashboard: https://github.com/michaeljwilt/subscriptions_dashboard

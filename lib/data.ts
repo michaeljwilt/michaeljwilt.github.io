@@ -1,5 +1,17 @@
 export const projects = [
   {
+    tag: 'BRILLIANT DISRUPTIONS',
+    title: 'TokenWatch',
+    desc: "See your team's Claude usage live — real-time AI token monitoring for teams who live in Claude. No conversation access. Ever.",
+    href: 'https://brilliantdisruptions.com/projects/tokenwatch/',
+  },
+  {
+    tag: 'BRILLIANT DISRUPTIONS',
+    title: 'JARVIS',
+    desc: 'Autonomous command & control center. 12 AI agents, 9 integrations, approval gates — the human approves, the machine operates.',
+    href: 'https://brilliantdisruptions.com/projects/jarvis/',
+  },
+  {
     tag: 'WEB APP',
     title: 'Traveller Character Creation',
     desc: 'A character creation tool for the classic Traveller tabletop RPG.',
@@ -12,22 +24,10 @@ export const projects = [
     href: 'https://github.com/michaeljwilt/podcast_kpi_dashboard',
   },
   {
-    tag: 'DATA APP',
-    title: 'Subscriptions Dashboard',
-    desc: 'Keep tabs on recurring subscriptions before they keep tabs on you.',
-    href: 'https://github.com/michaeljwilt/subscriptions_dashboard',
-  },
-  {
     tag: 'MACHINE LEARNING',
     title: 'Neural Net from Scratch',
     desc: "Building a neural network from first principles to see what's really under the hood.",
     href: 'https://github.com/michaeljwilt/neural-net-from-scratch',
-  },
-  {
-    tag: 'WEB APP',
-    title: 'Biblical Festivals App',
-    desc: 'An app for exploring the biblical festivals and their dates.',
-    href: 'https://github.com/michaeljwilt/biblical_festivals_app',
   },
   {
     tag: 'DATA ANALYSIS',
