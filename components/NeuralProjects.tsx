@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { projects } from '@/lib/data';
-import type { NeuralScene, RGB } from './neural/scene';
+import { neuralRef } from './neural/store';
+import type { RGB } from './neural/scene';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// One tint per project — the brain "thinks" in this color
+// One tint per project — the network "thinks" in this color
 const TINTS: RGB[] = [
   [0.18, 0.83, 0.75], // TokenWatch — teal
   [0.55, 0.3, 0.95],  // JARVIS — violet
@@ -23,45 +24,8 @@ const tintCss = (t: RGB, a: number) =>
 
 export default function NeuralProjects() {
   const sectionRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<NeuralScene | null>(null);
   const [active, setActive] = useState(0);
-  const [webgl, setWebgl] = useState(true);
   const activeRef = useRef(0);
-
-  // Lazy-init the Three.js scene only when the section approaches the viewport
-  useEffect(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let cancelled = false;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting || sceneRef.current) return;
-        io.disconnect();
-        import('./neural/scene').then(({ NeuralScene }) => {
-          if (cancelled || !canvasRef.current || !stageRef.current) return;
-          if (!NeuralScene.supported(canvasRef.current)) {
-            setWebgl(false);
-            return;
-          }
-          const scene = new NeuralScene(canvasRef.current, stageRef.current);
-          scene.init();
-          if (!reducedMotion) scene.excite(TINTS[activeRef.current], 8);
-          sceneRef.current = scene;
-        });
-      },
-      { rootMargin: '400px' }
-    );
-    if (sectionRef.current) io.observe(sectionRef.current);
-
-    return () => {
-      cancelled = true;
-      io.disconnect();
-      sceneRef.current?.destroy();
-      sceneRef.current = null;
-    };
-  }, []);
 
   // Pinned scroll scrub drives the active project (desktop only)
   useEffect(() => {
@@ -81,7 +45,7 @@ export default function NeuralProjects() {
           if (idx !== activeRef.current) {
             activeRef.current = idx;
             setActive(idx);
-            sceneRef.current?.excite(TINTS[idx]);
+            neuralRef.current?.excite(TINTS[idx]);
           }
         },
       });
@@ -93,10 +57,8 @@ export default function NeuralProjects() {
   const activate = (i: number) => {
     activeRef.current = i;
     setActive(i);
-    sceneRef.current?.excite(TINTS[i]);
+    neuralRef.current?.excite(TINTS[i]);
   };
-
-  const activeTint = TINTS[active];
 
   return (
     <section className="hsection neural-section" id="projects" ref={sectionRef}>
@@ -104,7 +66,7 @@ export default function NeuralProjects() {
         <div className="container">
           <p className="section-label mono">{'// PROJECTS — RUNNING ON NEURAL'}</p>
           <h2 className="section-title">
-            A brain that remembers what I&apos;ve built
+            The network remembers what I&apos;ve built
             <span className="hhint mono"> — keep scrolling ↓</span>
           </h2>
         </div>
@@ -145,16 +107,8 @@ export default function NeuralProjects() {
               </a>
             </p>
           </div>
-          <div className="neural-stage" ref={stageRef} aria-hidden="true">
-            {webgl ? (
-              <canvas ref={canvasRef} className="neural-canvas" />
-            ) : (
-              <div className="neural-fallback" />
-            )}
-            <div
-              className="neural-halo"
-              style={{ background: `radial-gradient(ellipse 55% 45% at 50% 50%, ${tintCss(activeTint, 0.14)}, transparent 70%)` }}
-            />
+          {/* the organism itself floats here, behind the page */}
+          <div className="neural-space" aria-hidden="true">
             <p className="neural-credit mono">
               neural engine borrowed from{' '}
               <a href="https://brilliantdisruptions.com/projects/jarvis/" target="_blank" rel="noopener noreferrer" className="inline-link">

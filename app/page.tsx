@@ -1,5 +1,5 @@
 import Cursor from '@/components/Cursor';
-import Background from '@/components/Background';
+import NeuralBackground from '@/components/NeuralBackground';
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Cursor />
-      <Background />
+      <NeuralBackground />
       <Nav />
       <Hero />
       <Marquee items="DATA ✦ CODE ✦ AI ✦ DASHBOARDS ✦ AUTOMATION ✦ " direction={1} />
