@@ -6,7 +6,7 @@ import Marquee from '@/components/Marquee';
 import About from '@/components/About';
 import ObsessionChart from '@/components/ObsessionChart';
 import Services from '@/components/Services';
-import Projects from '@/components/Projects';
+import NeuralProjects from '@/components/NeuralProjects';
 import Studio from '@/components/Studio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -24,7 +24,7 @@ export default function Home() {
       <About />
       <ObsessionChart />
       <Services />
-      <Projects />
+      <NeuralProjects />
       <Studio />
       <Contact />
       <Footer />
