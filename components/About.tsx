@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section className="section" id="about">
       <div className="container">
-        <p className="section-label mono scramble" data-text="// ABOUT">
+        <p className="section-label mono">
           {'// ABOUT'}
         </p>
         <div className="about-grid">

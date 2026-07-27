@@ -3,7 +3,7 @@ export default function Studio() {
     <section className="section" id="studio">
       <div className="container">
         <div className="studio-card reveal tilt" data-tilt-max="2">
-          <p className="section-label mono scramble" data-text="// THE STUDIO">
+          <p className="section-label mono">
             {'// THE STUDIO'}
           </p>
           <h2 className="section-title">

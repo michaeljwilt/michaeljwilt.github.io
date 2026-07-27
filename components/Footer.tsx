@@ -5,7 +5,9 @@ export default function Footer() {
         <span className="mono" suppressHydrationWarning>
           © {new Date().getFullYear()} Michael Wilt
         </span>
-        <span className="mono footer-note">Built by hand. Powered by curiosity.</span>
+        <span className="mono footer-note">
+          Built by hand. Powered by curiosity. Press <kbd>/</kbd> if you know, you know.
+        </span>
       </div>
     </footer>
   );

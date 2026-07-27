@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section className="section" id="contact">
       <div className="container contact-inner">
-        <p className="section-label mono scramble" data-text="// CONTACT">
+        <p className="section-label mono">
           {'// CONTACT'}
         </p>
         <h2 className="section-title reveal">Let&apos;s build something.</h2>

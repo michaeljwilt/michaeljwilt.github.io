@@ -1,0 +1,36 @@
+# Michael Wilt
+
+> Personal website of Michael Wilt — data analyst turned AI-first builder.
+> He builds websites, dashboards, automations, and AI-powered tools, and takes
+> on side work for small businesses. His bigger software swings live under
+> Brilliant Disruptions, an AI-first software studio.
+
+## About
+
+- Data analyst background: cleaning, questioning, and translating data into decisions.
+- Now building AI-first: web apps, automations, practical AI integrations.
+- Personal: husband, father, archer.
+- Contact: michaeljwilt@outlook.com (replies within 24h)
+
+## Services (side work)
+
+1. Websites & landing pages — fast, modern, sharp on every screen.
+2. Dashboards & data apps — live KPIs people actually look at.
+3. Automations & AI tools — hand the repetitive stuff to a machine.
+
+## Selected projects
+
+- Traveller Character Creation: https://github.com/michaeljwilt/traveller-character-creation
+- Podcast KPI Dashboard: https://github.com/michaeljwilt/podcast_kpi_dashboard
+- Subscriptions Dashboard: https://github.com/michaeljwilt/subscriptions_dashboard
+- Neural Net from Scratch: https://github.com/michaeljwilt/neural-net-from-scratch
+- Biblical Festivals App: https://github.com/michaeljwilt/biblical_festivals_app
+- Nashville Police Analysis: https://github.com/michaeljwilt/nashvillePolice
+
+## Links
+
+- GitHub: https://github.com/michaeljwilt
+- LinkedIn: https://www.linkedin.com/in/michaeljwilt/
+- Tableau Public: https://public.tableau.com/app/profile/michaeljwilt
+- Podcast: https://open.spotify.com/show/1sboV0Z07vI2jIV87vhyaQ
+- Studio: https://brilliantdisruptions.com

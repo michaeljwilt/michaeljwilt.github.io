@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
+// variable axis (wght 300–700) enables the kinetic-type hover on the hero
 const display = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
   variable: '--font-display',
   display: 'swap',
 });

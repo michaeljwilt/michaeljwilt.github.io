@@ -16,6 +16,9 @@ export default function Background() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let particles: Particle[] = [];
     let raf = 0;
+    // occasional shooting star
+    let meteor: { x: number; y: number; vx: number; vy: number; life: number } | null = null;
+    let nextMeteorAt = performance.now() + 4000 + Math.random() * 6000;
 
     function init() {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -71,6 +74,37 @@ export default function Background() {
           ctx.lineWidth = 1;
           ctx.stroke();
         }
+      }
+      // shooting star: spawn every ~4–10s, streak with fading tail
+      const now = performance.now();
+      if (!meteor && now > nextMeteorAt) {
+        meteor = {
+          x: Math.random() * w * 0.7,
+          y: Math.random() * h * 0.35,
+          vx: 7 + Math.random() * 5,
+          vy: 3 + Math.random() * 2,
+          life: 1,
+        };
+        nextMeteorAt = now + 4000 + Math.random() * 6000;
+      }
+      if (meteor) {
+        meteor.x += meteor.vx;
+        meteor.y += meteor.vy;
+        meteor.life -= 0.018;
+        const tail = 10;
+        const grad = ctx.createLinearGradient(
+          meteor.x, meteor.y,
+          meteor.x - meteor.vx * tail, meteor.y - meteor.vy * tail
+        );
+        grad.addColorStop(0, `rgba(255,255,255,${(0.85 * meteor.life).toFixed(3)})`);
+        grad.addColorStop(1, 'rgba(45,212,191,0)');
+        ctx.beginPath();
+        ctx.moveTo(meteor.x, meteor.y);
+        ctx.lineTo(meteor.x - meteor.vx * tail, meteor.y - meteor.vy * tail);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.6;
+        ctx.stroke();
+        if (meteor.life <= 0 || meteor.x > w + 50 || meteor.y > h + 50) meteor = null;
       }
       if (!reducedMotion) raf = requestAnimationFrame(draw);
     }

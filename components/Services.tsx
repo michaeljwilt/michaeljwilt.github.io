@@ -4,7 +4,7 @@ export default function Services() {
   return (
     <section className="section" id="work">
       <div className="container">
-        <p className="section-label mono scramble" data-text="// WORK WITH ME">
+        <p className="section-label mono">
           {'// WORK WITH ME'}
         </p>
         <h2 className="section-title reveal">Side work I take on</h2>

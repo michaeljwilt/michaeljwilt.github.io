@@ -53,7 +53,7 @@ export default function ObsessionChart() {
   return (
     <section className="section chart-section" id="chart">
       <div className="container">
-        <p className="section-label mono scramble" data-text="// DATA NEVER LIES">
+        <p className="section-label mono">
           {'// DATA NEVER LIES'}
         </p>
         <h2 className="section-title reveal">

@@ -5,7 +5,7 @@ export default function Projects() {
     <section className="hsection" id="projects">
       <div className="hpin">
         <div className="container hheader">
-          <p className="section-label mono scramble" data-text="// PROJECTS">
+          <p className="section-label mono">
             {'// PROJECTS'}
           </p>
           <h2 className="section-title">

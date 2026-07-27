@@ -29,6 +29,10 @@ export default function Hero() {
   return (
     <header className="section hero" id="hero">
       <div className="container hero-inner">
+        <div className="avail-badge reveal">
+          <span className="avail-dot" aria-hidden="true" />
+          Open for side projects
+        </div>
         <p className="section-label mono scramble" data-text="// HELLO, I'M">
           {"// HELLO, I'M"}
         </p>

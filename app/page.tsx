@@ -10,6 +10,7 @@ import Projects from '@/components/Projects';
 import Studio from '@/components/Studio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Terminal from '@/components/Terminal';
 import MotionRoot from '@/components/MotionRoot';
 
 export default function Home() {
@@ -23,11 +24,11 @@ export default function Home() {
       <About />
       <ObsessionChart />
       <Services />
-      <Marquee items="WEBSITES ✦ DASHBOARDS ✦ AUTOMATIONS ✦ AI TOOLS ✦ " direction={-1} />
       <Projects />
       <Studio />
       <Contact />
       <Footer />
+      <Terminal />
       <MotionRoot />
     </>
   );

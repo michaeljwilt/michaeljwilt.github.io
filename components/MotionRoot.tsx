@@ -86,9 +86,14 @@ export default function MotionRoot() {
       if (finePointer) {
         heroChars.forEach((ch) => {
           ch.addEventListener('mouseenter', () => {
+            // kinetic type: variable-weight dip + spring back up
+            gsap.to(ch, { fontVariationSettings: '"wght" 340', duration: 0.2, ease: 'power2.out' });
             gsap
               .to(ch, { yPercent: -12, duration: 0.25, ease: 'power2.out' })
-              .then(() => gsap.to(ch, { yPercent: 0, duration: 0.6, ease: 'elastic.out(1, 0.35)' }));
+              .then(() => {
+                gsap.to(ch, { yPercent: 0, duration: 0.6, ease: 'elastic.out(1, 0.35)' });
+                gsap.to(ch, { fontVariationSettings: '"wght" 700', duration: 0.7, ease: 'power2.out' });
+              });
           });
         });
       }
@@ -147,6 +152,9 @@ export default function MotionRoot() {
           repeat: -1,
         });
         if (dir < 0) gsap.set(track, { xPercent: -50 });
+        // pausable on hover (accessibility: motion the visitor can stop)
+        mq.addEventListener('mouseenter', () => gsap.to(tween, { timeScale: 0.15, duration: 0.4 }));
+        mq.addEventListener('mouseleave', () => gsap.to(tween, { timeScale: 1, duration: 0.4 }));
         lenis.on('scroll', (e: { velocity: number }) => {
           const boost = 1 + Math.min(Math.abs(e.velocity) / 12, 3);
           gsap.to(tween, {
