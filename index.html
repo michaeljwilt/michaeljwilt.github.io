@@ -9,7 +9,6 @@
   <meta property="og:description" content="I build useful things with data, code, and AI." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://michaeljwilt.github.io" />
-
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
   <!-- Fonts -->
@@ -20,74 +19,94 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/main.css" />
 
-  <!-- GSAP -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Motion stack (self-hosted — no CDN dependency) -->
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
+
+  <!-- ══════════ CUSTOM CURSOR ══════════ -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"><span id="cursor-label"></span></div>
 
   <!-- ══════════ BACKGROUND ══════════ -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <div id="bg-gradient" aria-hidden="true">
-    <div class="grad-orb grad-orb-1"></div>
-    <div class="grad-orb grad-orb-2"></div>
-    <div class="grad-orb grad-orb-3"></div>
+    <div class="grad-orb grad-orb-1" data-parallax="0.06"></div>
+    <div class="grad-orb grad-orb-2" data-parallax="-0.045"></div>
+    <div class="grad-orb grad-orb-3" data-parallax="0.03"></div>
   </div>
 
   <!-- ══════════ NAV ══════════ -->
   <nav id="nav">
+    <div id="scroll-progress" aria-hidden="true"></div>
     <div class="nav-container">
-      <a href="#hero" class="nav-logo" aria-label="Michael Wilt home">
+      <a href="#hero" class="nav-logo anchor" aria-label="Michael Wilt home" data-magnetic>
         <span class="logo-mark">MW</span>
         <span class="logo-full">Michael Wilt</span>
       </a>
       <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#work" class="nav-link">Work With Me</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#studio" class="nav-link">Studio</a>
+        <a href="#about" class="nav-link anchor" data-cursor>About</a>
+        <a href="#work" class="nav-link anchor" data-cursor>Work With Me</a>
+        <a href="#projects" class="nav-link anchor" data-cursor>Projects</a>
+        <a href="#studio" class="nav-link anchor" data-cursor>Studio</a>
       </div>
-      <a href="#contact" class="nav-cta btn btn-ghost btn-sm">Say Hello</a>
+      <a href="#contact" class="nav-cta btn btn-ghost btn-sm anchor" data-magnetic>Say Hello</a>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile-menu" id="nav-mobile-menu">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#work" class="mobile-link">Work With Me</a>
-      <a href="#projects" class="mobile-link">Projects</a>
-      <a href="#studio" class="mobile-link">Studio</a>
-      <a href="#contact" class="mobile-link">Say Hello</a>
+      <a href="#about" class="mobile-link anchor">About</a>
+      <a href="#work" class="mobile-link anchor">Work With Me</a>
+      <a href="#projects" class="mobile-link anchor">Projects</a>
+      <a href="#studio" class="mobile-link anchor">Studio</a>
+      <a href="#contact" class="mobile-link anchor">Say Hello</a>
     </div>
   </nav>
 
   <!-- ══════════ HERO ══════════ -->
   <header class="section hero" id="hero">
     <div class="container hero-inner">
-      <p class="section-label mono reveal">// HELLO, I'M</p>
-      <h1 class="hero-headline reveal">
-        Michael <span class="grad-text">Wilt</span>
+      <p class="section-label mono scramble" data-text="// HELLO, I'M">// HELLO, I'M</p>
+      <h1 class="hero-headline">
+        <span class="split-line"><span class="split-text">MICHAEL</span></span>
+        <span class="split-line"><span class="split-text grad-text">WILT</span></span>
       </h1>
       <p class="hero-sub reveal">
         I build useful things with <strong>data, code, and AI</strong> —
         websites, dashboards, and tools that make life and work a little better.
       </p>
-      <p class="hero-tags mono reveal">Husband · Father · Archer · Data Enthusiast</p>
+      <p class="hero-tags mono reveal">
+        Husband · Father ·
+        <button id="archer-egg" class="tag-egg" title="Click me">Archer</button>
+        · Data Enthusiast
+      </p>
       <div class="hero-actions reveal">
-        <a href="#work" class="btn btn-solid">Work with me</a>
-        <a href="#projects" class="btn btn-ghost">See my projects</a>
+        <a href="#work" class="btn btn-solid anchor" data-magnetic>Work with me</a>
+        <a href="#projects" class="btn btn-ghost anchor" data-magnetic>See my projects</a>
       </div>
     </div>
-    <a href="#about" class="scroll-hint mono" aria-label="Scroll to about">scroll ↓</a>
+    <a href="#about" class="scroll-hint mono anchor" aria-label="Scroll to about">scroll ↓</a>
   </header>
+
+  <!-- ══════════ MARQUEE 1 ══════════ -->
+  <div class="marquee" data-marquee-speed="1" aria-hidden="true">
+    <div class="marquee-track">
+      <span>DATA ✦ CODE ✦ AI ✦ DASHBOARDS ✦ AUTOMATION ✦ </span><span>DATA ✦ CODE ✦ AI ✦ DASHBOARDS ✦ AUTOMATION ✦ </span>
+    </div>
+  </div>
 
   <!-- ══════════ ABOUT ══════════ -->
   <section class="section" id="about">
     <div class="container">
-      <p class="section-label mono reveal">// ABOUT</p>
+      <p class="section-label mono scramble" data-text="// ABOUT">// ABOUT</p>
       <div class="about-grid">
-        <div class="about-photo-wrap reveal">
+        <div class="about-photo-wrap reveal" id="photo-tilt">
           <img src="assets/michael.png" alt="Michael Wilt smiling in a ball cap" class="about-photo" width="280" height="280" loading="lazy" />
+          <div class="photo-ring" aria-hidden="true"></div>
         </div>
         <div class="about-copy">
           <h2 class="section-title reveal">Data analyst turned <span class="grad-text">AI-first builder</span>.</h2>
@@ -100,104 +119,163 @@
             When I'm not building, I'm with my family or behind a bow. I believe the best
             tools are the ones that quietly disappear into your day and just <em>work</em>.
           </p>
-          <ul class="about-facts mono reveal">
-            <li><span>01</span> Data first — decisions should have evidence</li>
-            <li><span>02</span> Ship small, ship often</li>
-            <li><span>03</span> Family over everything</li>
-          </ul>
+          <div class="stats-row">
+            <div class="stat reveal">
+              <span class="stat-num mono" data-count="25" data-suffix="+">0</span>
+              <span class="stat-label">public repos</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat-num mono" data-count="100" data-suffix="%">0</span>
+              <span class="stat-label">hand-built</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat-num mono">∞</span>
+              <span class="stat-label">curiosity</span>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CHART ══════════ -->
+  <section class="section chart-section" id="chart">
+    <div class="container">
+      <p class="section-label mono scramble" data-text="// DATA NEVER LIES">// DATA NEVER LIES</p>
+      <h2 class="section-title reveal">Obsession with building things<span class="grad-text">, over time.</span></h2>
+      <div class="chart-card reveal" id="chart-card">
+        <svg id="obsession-chart" viewBox="0 0 800 320" preserveAspectRatio="none" role="img" aria-label="A rising line chart of obsession with building things from 2019 to 2026">
+          <defs>
+            <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="chart-stroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#2dd4bf"/>
+              <stop offset="100%" stop-color="#ffb454"/>
+            </linearGradient>
+          </defs>
+          <g id="chart-grid"></g>
+          <path id="chart-area" fill="url(#chart-fill)" d=""/>
+          <path id="chart-line" fill="none" stroke="url(#chart-stroke)" stroke-width="3" stroke-linecap="round" d=""/>
+          <g id="chart-crosshair" opacity="0">
+            <line id="crosshair-line" y1="20" y2="290" stroke="rgba(255,255,255,0.25)" stroke-dasharray="4 4"/>
+            <circle id="crosshair-dot" r="6" fill="#ffb454" stroke="#06070c" stroke-width="3"/>
+          </g>
+          <g id="chart-labels"></g>
+        </svg>
+        <div id="chart-tooltip" class="mono" aria-hidden="true"></div>
+      </div>
+      <p class="chart-caption mono reveal">fig. 01 — highly scientific. hover it.</p>
     </div>
   </section>
 
   <!-- ══════════ WORK WITH ME ══════════ -->
   <section class="section" id="work">
     <div class="container">
-      <p class="section-label mono reveal">// WORK WITH ME</p>
+      <p class="section-label mono scramble" data-text="// WORK WITH ME">// WORK WITH ME</p>
       <h2 class="section-title reveal">Side work I take on</h2>
       <p class="section-intro reveal">
         I help small businesses and busy people get real leverage from technology —
         without the agency price tag or the buzzword soup.
       </p>
-      <div class="card-grid">
-        <div class="card reveal">
-          <div class="card-num mono">01</div>
-          <h3>Websites &amp; Landing Pages</h3>
-          <p>Fast, clean, modern sites that load quick and look sharp on every screen — from a one-page presence to a full brochure site.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-num mono">02</div>
-          <h3>Dashboards &amp; Data Apps</h3>
-          <p>Turn your spreadsheets and scattered numbers into live dashboards you'll actually look at. KPIs, reporting, and the "how are we doing?" answer at a glance.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-num mono">03</div>
-          <h3>Automations &amp; AI Tools</h3>
-          <p>Hand the repetitive stuff to a machine. Workflow automations and practical AI integrations that give you your hours back.</p>
-        </div>
-      </div>
-      <div class="work-cta reveal">
-        <a href="#contact" class="btn btn-solid">Tell me about your project</a>
+      <div class="service-list">
+        <a href="#contact" class="service-row anchor reveal" data-cursor="LET'S GO">
+          <span class="service-num mono">01</span>
+          <span class="service-name">Websites &amp; Landing Pages</span>
+          <span class="service-desc">Fast, clean, modern sites that load quick and look sharp on every screen.</span>
+          <span class="service-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#contact" class="service-row anchor reveal" data-cursor="LET'S GO">
+          <span class="service-num mono">02</span>
+          <span class="service-name">Dashboards &amp; Data Apps</span>
+          <span class="service-desc">Live dashboards you'll actually look at — KPIs and the "how are we doing?" answer at a glance.</span>
+          <span class="service-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#contact" class="service-row anchor reveal" data-cursor="LET'S GO">
+          <span class="service-num mono">03</span>
+          <span class="service-name">Automations &amp; AI Tools</span>
+          <span class="service-desc">Hand the repetitive stuff to a machine and get your hours back.</span>
+          <span class="service-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ PROJECTS ══════════ -->
-  <section class="section" id="projects">
-    <div class="container">
-      <p class="section-label mono reveal">// PROJECTS</p>
-      <h2 class="section-title reveal">Things I've built &amp; explored</h2>
-      <div class="project-grid">
-        <a class="project reveal" href="https://github.com/michaeljwilt/traveller-character-creation" target="_blank" rel="noopener">
-          <div class="project-top mono"><span>WEB APP</span><span class="project-arrow">↗</span></div>
+  <!-- ══════════ MARQUEE 2 ══════════ -->
+  <div class="marquee marquee-reverse" data-marquee-speed="-1" aria-hidden="true">
+    <div class="marquee-track">
+      <span>WEBSITES ✦ DASHBOARDS ✦ AUTOMATIONS ✦ AI TOOLS ✦ </span><span>WEBSITES ✦ DASHBOARDS ✦ AUTOMATIONS ✦ AI TOOLS ✦ </span>
+    </div>
+  </div>
+
+  <!-- ══════════ PROJECTS (pinned horizontal gallery) ══════════ -->
+  <section class="hsection" id="projects">
+    <div class="hpin">
+      <div class="container hheader">
+        <p class="section-label mono scramble" data-text="// PROJECTS">// PROJECTS</p>
+        <h2 class="section-title">Things I've built &amp; explored <span class="hhint mono">— keep scrolling →</span></h2>
+      </div>
+      <div class="htrack" id="htrack">
+        <a class="project tilt" href="https://github.com/michaeljwilt/traveller-character-creation" target="_blank" rel="noopener" data-cursor="VIEW ↗">
+          <div class="project-shine" aria-hidden="true"></div>
+          <div class="project-top mono"><span>WEB APP</span><span class="project-index">01</span></div>
           <h3>Traveller Character Creation</h3>
           <p>A character creation tool for the classic Traveller tabletop RPG.</p>
         </a>
-        <a class="project reveal" href="https://github.com/michaeljwilt/podcast_kpi_dashboard" target="_blank" rel="noopener">
-          <div class="project-top mono"><span>DATA APP</span><span class="project-arrow">↗</span></div>
+        <a class="project tilt" href="https://github.com/michaeljwilt/podcast_kpi_dashboard" target="_blank" rel="noopener" data-cursor="VIEW ↗">
+          <div class="project-shine" aria-hidden="true"></div>
+          <div class="project-top mono"><span>DATA APP</span><span class="project-index">02</span></div>
           <h3>Podcast KPI Dashboard</h3>
           <p>A dashboard for tracking podcast performance metrics in one place.</p>
         </a>
-        <a class="project reveal" href="https://github.com/michaeljwilt/subscriptions_dashboard" target="_blank" rel="noopener">
-          <div class="project-top mono"><span>DATA APP</span><span class="project-arrow">↗</span></div>
+        <a class="project tilt" href="https://github.com/michaeljwilt/subscriptions_dashboard" target="_blank" rel="noopener" data-cursor="VIEW ↗">
+          <div class="project-shine" aria-hidden="true"></div>
+          <div class="project-top mono"><span>DATA APP</span><span class="project-index">03</span></div>
           <h3>Subscriptions Dashboard</h3>
           <p>Keep tabs on recurring subscriptions before they keep tabs on you.</p>
         </a>
-        <a class="project reveal" href="https://github.com/michaeljwilt/neural-net-from-scratch" target="_blank" rel="noopener">
-          <div class="project-top mono"><span>MACHINE LEARNING</span><span class="project-arrow">↗</span></div>
+        <a class="project tilt" href="https://github.com/michaeljwilt/neural-net-from-scratch" target="_blank" rel="noopener" data-cursor="VIEW ↗">
+          <div class="project-shine" aria-hidden="true"></div>
+          <div class="project-top mono"><span>MACHINE LEARNING</span><span class="project-index">04</span></div>
           <h3>Neural Net from Scratch</h3>
-          <p>Building a neural network from first principles to understand what's really under the hood.</p>
+          <p>Building a neural network from first principles to see what's really under the hood.</p>
         </a>
-        <a class="project reveal" href="https://github.com/michaeljwilt/biblical_festivals_app" target="_blank" rel="noopener">
-          <div class="project-top mono"><span>WEB APP</span><span class="project-arrow">↗</span></div>
+        <a class="project tilt" href="https://github.com/michaeljwilt/biblical_festivals_app" target="_blank" rel="noopener" data-cursor="VIEW ↗">
+          <div class="project-shine" aria-hidden="true"></div>
+          <div class="project-top mono"><span>WEB APP</span><span class="project-index">05</span></div>
           <h3>Biblical Festivals App</h3>
           <p>An app for exploring the biblical festivals and their dates.</p>
         </a>
-        <a class="project reveal" href="https://github.com/michaeljwilt/nashvillePolice" target="_blank" rel="noopener">
-          <div class="project-top mono"><span>DATA ANALYSIS</span><span class="project-arrow">↗</span></div>
+        <a class="project tilt" href="https://github.com/michaeljwilt/nashvillePolice" target="_blank" rel="noopener" data-cursor="VIEW ↗">
+          <div class="project-shine" aria-hidden="true"></div>
+          <div class="project-top mono"><span>DATA ANALYSIS</span><span class="project-index">06</span></div>
           <h3>Nashville Police Analysis</h3>
           <p>Digging into Nashville police data to see what the numbers have to say.</p>
         </a>
+        <div class="project project-more-card">
+          <p class="mono">MORE ON</p>
+          <div class="more-links">
+            <a href="https://github.com/michaeljwilt" target="_blank" rel="noopener" class="inline-link" data-cursor="GO ↗">GitHub</a>
+            <a href="https://public.tableau.com/app/profile/michaeljwilt" target="_blank" rel="noopener" class="inline-link" data-cursor="GO ↗">Tableau</a>
+          </div>
+        </div>
       </div>
-      <p class="projects-more reveal">
-        More on <a href="https://github.com/michaeljwilt" target="_blank" rel="noopener" class="inline-link">GitHub</a>
-        and <a href="https://public.tableau.com/app/profile/michaeljwilt" target="_blank" rel="noopener" class="inline-link">Tableau Public</a>.
-      </p>
     </div>
   </section>
 
   <!-- ══════════ BRILLIANT DISRUPTIONS ══════════ -->
   <section class="section" id="studio">
     <div class="container">
-      <div class="studio-card reveal">
-        <p class="section-label mono">// THE STUDIO</p>
+      <div class="studio-card reveal tilt" data-tilt-max="2">
+        <p class="section-label mono scramble" data-text="// THE STUDIO">// THE STUDIO</p>
         <h2 class="section-title"><span class="grad-text">Brilliant Disruptions</span></h2>
         <p class="studio-tag mono">AI-FIRST SOFTWARE STUDIO</p>
         <p class="studio-copy">
           My bigger swings live under Brilliant Disruptions — an AI-first software studio
           building the software the world doesn't know it needs yet.
         </p>
-        <a href="https://brilliantdisruptions.com" target="_blank" rel="noopener" class="btn btn-solid">Visit the studio ↗</a>
+        <a href="https://brilliantdisruptions.com" target="_blank" rel="noopener" class="btn btn-solid" data-magnetic>Visit the studio ↗</a>
       </div>
     </div>
   </section>
@@ -205,18 +283,18 @@
   <!-- ══════════ CONTACT ══════════ -->
   <section class="section" id="contact">
     <div class="container contact-inner">
-      <p class="section-label mono reveal">// CONTACT</p>
+      <p class="section-label mono scramble" data-text="// CONTACT">// CONTACT</p>
       <h2 class="section-title reveal">Let's build something.</h2>
       <p class="section-intro reveal">
         Have a project in mind, a question, or just want to talk data, AI, or archery?
         My inbox is open.
       </p>
-      <a href="mailto:michaeljwilt@outlook.com" class="contact-email grad-text reveal">michaeljwilt@outlook.com</a>
+      <a href="mailto:michaeljwilt@outlook.com" class="contact-email reveal" id="contact-email" data-cursor="SEND ✉">michaeljwilt@outlook.com</a>
       <div class="social-row reveal">
-        <a href="https://github.com/michaeljwilt" target="_blank" rel="noopener" class="social-link mono">GitHub</a>
-        <a href="https://www.linkedin.com/in/michaeljwilt/" target="_blank" rel="noopener" class="social-link mono">LinkedIn</a>
-        <a href="https://public.tableau.com/app/profile/michaeljwilt" target="_blank" rel="noopener" class="social-link mono">Tableau</a>
-        <a href="https://open.spotify.com/show/1sboV0Z07vI2jIV87vhyaQ" target="_blank" rel="noopener" class="social-link mono">Podcast</a>
+        <a href="https://github.com/michaeljwilt" target="_blank" rel="noopener" class="social-link mono" data-magnetic>GitHub</a>
+        <a href="https://www.linkedin.com/in/michaeljwilt/" target="_blank" rel="noopener" class="social-link mono" data-magnetic>LinkedIn</a>
+        <a href="https://public.tableau.com/app/profile/michaeljwilt" target="_blank" rel="noopener" class="social-link mono" data-magnetic>Tableau</a>
+        <a href="https://open.spotify.com/show/1sboV0Z07vI2jIV87vhyaQ" target="_blank" rel="noopener" class="social-link mono" data-magnetic>Podcast</a>
       </div>
     </div>
   </section>
@@ -229,6 +307,5 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
