@@ -24,12 +24,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Michael Wilt — Builder, Data Guy, Dad',
+  title: 'Michael Wilt — dbt Teardowns for Data Teams',
   description:
-    'Michael Wilt builds websites, dashboards, and AI-powered tools. Data analyst turned AI-first builder. Husband, father, archer.',
+    'Analytics engineer helping teams fix slow, expensive, and fragile dbt projects — and get their data AI-ready. One-week teardowns, fixed price, prioritized fix list.',
   openGraph: {
-    title: 'Michael Wilt',
-    description: 'I build useful things with data, code, and AI.',
+    title: 'Michael Wilt — dbt Teardowns',
+    description:
+      'One-week teardowns of dbt projects. Find out what your models really cost and what is going to break next.',
     type: 'website',
     url: 'https://michaelwilt.online',
   },
@@ -39,7 +40,7 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Michael Wilt',
-  jobTitle: 'Data Analyst & AI-First Builder',
+  jobTitle: 'Analytics Engineer',
   email: 'mailto:michaeljwilt@outlook.com',
   url: 'https://michaelwilt.online',
   sameAs: [

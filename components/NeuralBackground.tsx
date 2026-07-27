@@ -11,17 +11,19 @@ gsap.registerPlugin(ScrollTrigger);
 // lookX/lookY frame it off-center so it never fights the content.
 // Studio is the exception: pull out and look at the whole brain.
 const SECTIONS = [
-  { id: '#hero',    neuron: 0, radius: 10.5, azimuth: 0.0, elevation: 0.08,  lookX: 1.4,  lookY: 0.0 },
-  { id: '#about',   neuron: 1, radius: 5.2,  azimuth: 1.2, elevation: 0.3,   lookX: -1.9, lookY: 0.1 },
-  { id: '#chart',   neuron: 2, radius: 4.6,  azimuth: 2.2, elevation: 0.8,   lookX: 2.0,  lookY: -0.8 },
-  { id: '#work',    neuron: 3, radius: 4.2,  azimuth: 3.2, elevation: 0.15,  lookX: 2.4,  lookY: -0.6 },
-  { id: '#projects',neuron: 4, radius: 5.4,  azimuth: 4.3, elevation: -0.1,  lookX: 2.3,  lookY: 0.0 },
-  { id: '#studio',  neuron: 5, radius: 34,   azimuth: 5.6, elevation: 0.35,  lookX: 0.0,  lookY: 0.3, overview: true },
-  { id: '#contact', neuron: 6, radius: 3.4,  azimuth: 6.6, elevation: 0.02,  lookX: 0.0,  lookY: -1.9 },
+  { id: '#hero',    neuron: 0, radius: 10.5, azimuth: 0.0, elevation: 0.08,  lookX: 1.5,  lookY: 0.0 },
+  { id: '#fit',     neuron: 1, radius: 8.5,  azimuth: 0.9, elevation: 0.28,  lookX: 3.4,  lookY: 0.3 },
+  { id: '#work',    neuron: 2, radius: 9.0,  azimuth: 1.8, elevation: 0.55,  lookX: 3.6,  lookY: -0.4 },
+  { id: '#scope',   neuron: 3, radius: 9.5,  azimuth: 2.7, elevation: 0.12,  lookX: 3.8,  lookY: -0.3 },
+  { id: '#about',   neuron: 4, radius: 8.0,  azimuth: 3.6, elevation: -0.15, lookX: 3.4,  lookY: 0.4 },
+  { id: '#chart',   neuron: 5, radius: 7.5,  azimuth: 4.4, elevation: 0.7,   lookX: 3.0,  lookY: -1.4 },
+  { id: '#projects',neuron: 6, radius: 8.5,  azimuth: 5.2, elevation: -0.08, lookX: 3.3,  lookY: 0.2 },
+  { id: '#studio',  neuron: 7, radius: 36,   azimuth: 6.1, elevation: 0.35,  lookX: 0.0,  lookY: 0.3, overview: true },
+  { id: '#contact', neuron: 8, radius: 3.6,  azimuth: 7.0, elevation: 0.02,  lookX: 0.0,  lookY: -2.0 },
 ] as const;
 
 // Roughly the centroid of the brain — the studio overview orbits this.
-const BRAIN_CENTER: [number, number, number] = [0, 0, -11];
+const BRAIN_CENTER: [number, number, number] = [0, 0, -13];
 
 export default function NeuralBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

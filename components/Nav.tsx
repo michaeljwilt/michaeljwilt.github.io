@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { BOOK_HREF } from '@/lib/data';
 
 const links = [
+  { href: '#fit', label: 'Is this you' },
+  { href: '#work', label: 'Pricing' },
+  { href: '#scope', label: 'The teardown' },
   { href: '#about', label: 'About' },
-  { href: '#work', label: 'Work With Me' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#studio', label: 'Studio' },
 ];
 
 export default function Nav() {
@@ -27,8 +28,8 @@ export default function Nav() {
             </a>
           ))}
         </div>
-        <a href="#contact" className="nav-cta btn btn-ghost btn-sm anchor" data-magnetic>
-          Say Hello
+        <a href={BOOK_HREF} className="nav-cta btn btn-solid btn-sm" data-magnetic>
+          Book a free look
         </a>
         <button
           className="nav-hamburger"
@@ -42,11 +43,14 @@ export default function Nav() {
         </button>
       </div>
       <div className={`nav-mobile-menu${open ? ' open' : ''}`}>
-        {[...links, { href: '#contact', label: 'Say Hello' }].map((l) => (
+        {links.map((l) => (
           <a key={l.href} href={l.href} className="mobile-link anchor" onClick={() => setOpen(false)}>
             {l.label}
           </a>
         ))}
+        <a href={BOOK_HREF} className="mobile-link" onClick={() => setOpen(false)}>
+          Book a free look
+        </a>
       </div>
     </nav>
   );

@@ -3,9 +3,11 @@ import NeuralBackground from '@/components/NeuralBackground';
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
+import WhoItsFor from '@/components/WhoItsFor';
+import Offer from '@/components/Offer';
+import Teardown from '@/components/Teardown';
 import About from '@/components/About';
 import ObsessionChart from '@/components/ObsessionChart';
-import Services from '@/components/Services';
 import NeuralProjects from '@/components/NeuralProjects';
 import Studio from '@/components/Studio';
 import Contact from '@/components/Contact';
@@ -20,10 +22,15 @@ export default function Home() {
       <NeuralBackground />
       <Nav />
       <Hero />
-      <Marquee items="DATA ✦ CODE ✦ AI ✦ DASHBOARDS ✦ AUTOMATION ✦ " direction={1} />
+      <Marquee
+        items="ONE-WEEK DBT TEARDOWNS ✦ WAREHOUSE COST ANALYSIS ✦ PRIORITIZED FIX LIST ✦ "
+        direction={1}
+      />
+      <WhoItsFor />
+      <Offer />
+      <Teardown />
       <About />
       <ObsessionChart />
-      <Services />
       <NeuralProjects />
       <Studio />
       <Contact />

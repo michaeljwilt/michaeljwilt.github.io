@@ -12,11 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 // One tint per project — the network "thinks" in this color
 const TINTS: RGB[] = [
   [0.18, 0.83, 0.75], // TokenWatch — teal
-  [0.55, 0.3, 0.95],  // JARVIS — violet
-  [1.0, 0.71, 0.33],  // Traveller — amber
-  [0.0, 0.9, 1.0],    // Podcast KPI — cyan
-  [1.0, 0.0, 0.43],   // Neural Net — magenta
-  [0.85, 0.9, 1.0],   // Nashville — starlight
+  [0.55, 0.3, 0.95], // JARVIS — violet
 ];
 
 const tintCss = (t: RGB, a: number) =>
@@ -27,25 +23,19 @@ export default function NeuralProjects() {
   const [active, setActive] = useState(0);
   const activeRef = useRef(0);
 
-  // Pinned scroll scrub drives the active project (desktop only)
   useEffect(() => {
     const mm = gsap.matchMedia();
     mm.add('(min-width: 901px) and (prefers-reduced-motion: no-preference)', () => {
       const st = ScrollTrigger.create({
         trigger: sectionRef.current,
-        start: 'top top',
-        end: () => '+=' + projects.length * 520,
-        pin: true,
-        scrub: true,
+        start: 'top 70%',
+        end: 'bottom 40%',
         onUpdate: (self) => {
-          const idx = Math.min(
-            projects.length - 1,
-            Math.floor(self.progress * projects.length)
-          );
+          const idx = Math.min(projects.length - 1, Math.floor(self.progress * projects.length));
           if (idx !== activeRef.current) {
             activeRef.current = idx;
             setActive(idx);
-            neuralRef.current?.excite(TINTS[idx]);
+            neuralRef.current?.excite(TINTS[idx] ?? TINTS[0]);
           }
         },
       });
@@ -57,66 +47,61 @@ export default function NeuralProjects() {
   const activate = (i: number) => {
     activeRef.current = i;
     setActive(i);
-    neuralRef.current?.excite(TINTS[i]);
+    neuralRef.current?.excite(TINTS[i] ?? TINTS[0]);
   };
 
   return (
-    <section className="hsection neural-section" id="projects" ref={sectionRef}>
-      <div className="neural-pin">
-        <div className="container">
-          <p className="section-label mono">{'// PROJECTS — RUNNING ON NEURAL'}</p>
-          <h2 className="section-title">
-            The network remembers what I&apos;ve built
-            <span className="hhint mono"> — keep scrolling ↓</span>
-          </h2>
-        </div>
-        <div className="container neural-grid">
-          <div className="neural-list" role="list">
-            {projects.map((p, i) => (
-              <a
-                key={p.href}
-                role="listitem"
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`neural-item${i === active ? ' is-active' : ''}`}
-                style={i === active ? { borderColor: tintCss(TINTS[i], 0.5) } : undefined}
-                onMouseEnter={() => activate(i)}
-                onFocus={() => activate(i)}
-                data-cursor="VIEW ↗"
+    <section className="section scrim" id="projects" ref={sectionRef}>
+      <div className="container">
+        <p className="section-label mono">{'// WHEN THE SCOPE IS BIGGER'}</p>
+        <h2 className="section-title reveal">Products I&apos;ve shipped with the studio</h2>
+        <p className="section-intro reveal">
+          The teardown is mine, solo, under my own name. When something needs a full build, it goes
+          through Brilliant Disruptions — the AI-first studio I run with two partners. These are
+          ours.
+        </p>
+        <div className="neural-list" role="list">
+          {projects.map((p, i) => (
+            <a
+              key={p.href}
+              role="listitem"
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`neural-item${i === active ? ' is-active' : ''}`}
+              style={i === active ? { borderColor: tintCss(TINTS[i] ?? TINTS[0], 0.5) } : undefined}
+              onMouseEnter={() => activate(i)}
+              onFocus={() => activate(i)}
+              data-cursor="VIEW ↗"
+            >
+              <span
+                className="neural-num mono"
+                style={i === active ? { color: tintCss(TINTS[i] ?? TINTS[0], 1) } : undefined}
               >
-                <span className="neural-num mono" style={i === active ? { color: tintCss(TINTS[i], 1) } : undefined}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="neural-copy">
-                  <span className="neural-tag mono">{p.tag}</span>
-                  <span className="neural-name">{p.title}</span>
-                  <span className="neural-desc">{p.desc}</span>
-                </span>
-                <span className="neural-arrow" aria-hidden="true">↗</span>
-              </a>
-            ))}
-            <p className="neural-more mono">
-              more on{' '}
-              <a href="https://github.com/michaeljwilt" target="_blank" rel="noopener noreferrer" className="inline-link">
-                github
-              </a>{' '}
-              ·{' '}
-              <a href="https://public.tableau.com/app/profile/michaeljwilt" target="_blank" rel="noopener noreferrer" className="inline-link">
-                tableau
-              </a>
-            </p>
-          </div>
-          {/* the organism itself floats here, behind the page */}
-          <div className="neural-space" aria-hidden="true">
-            <p className="neural-credit mono">
-              neural engine borrowed from{' '}
-              <a href="https://brilliantdisruptions.com/projects/jarvis/" target="_blank" rel="noopener noreferrer" className="inline-link">
-                JARVIS
-              </a>
-            </p>
-          </div>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="neural-copy">
+                <span className="neural-tag mono">{p.tag}</span>
+                <span className="neural-name">{p.title}</span>
+                <span className="neural-desc">{p.desc}</span>
+              </span>
+              <span className="neural-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          ))}
         </div>
+        <p className="neural-more mono">
+          neural engine on this page borrowed from{' '}
+          <a
+            href="https://brilliantdisruptions.com/projects/jarvis/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-link"
+          >
+            JARVIS
+          </a>
+        </p>
       </div>
     </section>
   );

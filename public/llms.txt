@@ -1,38 +1,52 @@
-# Michael Wilt
+# Michael Wilt — Analytics Engineer
 
-> Personal website of Michael Wilt — data analyst turned AI-first builder.
-> He builds websites, dashboards, automations, and AI-powered tools, and takes
-> on side work for small businesses. His bigger software swings live under
-> Brilliant Disruptions, an AI-first software studio.
+> Michael Wilt runs one-week teardowns of dbt projects: a model-by-model review
+> that surfaces what the warehouse actually costs, where testing stops, and what
+> is going to break next. Solo, fixed price, under his own name.
 
-## About
+## Positioning
 
-- Data analyst background: cleaning, questioning, and translating data into decisions.
-- Now building AI-first: web apps, automations, practical AI integrations.
-- Personal: husband, father, archer.
-- Contact: michaeljwilt@outlook.com (replies within 24h)
+Analytics engineer helping teams fix slow, expensive, and fragile dbt projects —
+and get their data AI-ready. Stack: dbt, Dagster, DLT, Python, Streamlit.
 
-## Services (side work)
+## The offer ladder
 
-1. Websites & landing pages — fast, modern, sharp on every screen.
-2. Dashboards & data apps — live KPIs people actually look at.
-3. Automations & AI tools — hand the repetitive stuff to a machine.
+- The Look — free, 20 minutes. A live look at your dbt project; two or three real
+  problems named out loud. No deliverable.
+- The dbt Teardown — $2,500 intro, one week. Model-by-model review.
+- The Fix Sprint — $3,000–$6,000, two weeks. Implementation of the top findings.
+- Ongoing — $2,000–$4,000/month. A fixed block of hours, offered after a Fix Sprint.
 
-## Selected projects
+Fixed price, never hourly. 50% up front. Two active engagements maximum.
 
-- TokenWatch (Brilliant Disruptions): https://brilliantdisruptions.com/projects/tokenwatch/
-- JARVIS (Brilliant Disruptions): https://brilliantdisruptions.com/projects/jarvis/
-- Traveller Character Creation: https://github.com/michaeljwilt/traveller-character-creation
-- Podcast KPI Dashboard: https://github.com/michaeljwilt/podcast_kpi_dashboard
-- Subscriptions Dashboard: https://github.com/michaeljwilt/subscriptions_dashboard
-- Neural Net from Scratch: https://github.com/michaeljwilt/neural-net-from-scratch
-- Biblical Festivals App: https://github.com/michaeljwilt/biblical_festivals_app
-- Nashville Police Analysis: https://github.com/michaeljwilt/nashvillePolice
+## What the teardown covers
 
-## Links
+1. Structure and layering — staging/intermediate/marts discipline, DAG shape, fan-out.
+2. Performance and cost — expensive models, materialization strategy, incremental logic.
+3. Testing and data quality — coverage gaps and where trust breaks.
+4. CI/CD and deployment — how changes ship and what is unguarded.
+5. Documentation and lineage — what is undocumented or untraceable.
+6. Naming and maintainability — conventions and drift.
 
-- GitHub: https://github.com/michaeljwilt
+Deliverables: a prioritized fix list naming specific models and files, a 20–30
+minute recorded walkthrough, and a 30-day remediation roadmap.
+
+## Best fit
+
+- 15–200 employees
+- dbt in production for 12+ months
+- A 1–4 person data team with no dedicated analytics engineer
+- Someone already complaining about warehouse costs or dashboard trust
+
+## Contact
+
+- Email: michaeljwilt@outlook.com (replies within 24 hours)
 - LinkedIn: https://www.linkedin.com/in/michaeljwilt/
+- GitHub: https://github.com/michaeljwilt
 - Tableau Public: https://public.tableau.com/app/profile/michaeljwilt
-- Podcast: https://open.spotify.com/show/1sboV0Z07vI2jIV87vhyaQ
-- Studio: https://brilliantdisruptions.com
+
+## Separately
+
+Michael co-runs Brilliant Disruptions (https://brilliantdisruptions.com), an
+AI-first software studio, with two partners. That is a separate entity; full
+software builds go there. Studio products include TokenWatch and JARVIS.

@@ -1,16 +1,14 @@
 export default function About() {
   return (
-    <section className="section" id="about">
+    <section className="section scrim" id="about">
       <div className="container">
-        <p className="section-label mono">
-          {'// ABOUT'}
-        </p>
+        <p className="section-label mono">{'// WHO IS DOING THE WORK'}</p>
         <div className="about-grid">
           <div className="about-photo-wrap reveal" id="photo-tilt">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/michael.jpg"
-              alt="Michael Wilt smiling in a ball cap"
+              alt="Michael Wilt"
               className="about-photo"
               width={280}
               height={280}
@@ -20,33 +18,34 @@ export default function About() {
           </div>
           <div className="about-copy">
             <h2 className="section-title reveal">
-              Data analyst turned <span className="grad-text">AI-first builder</span>.
+              I do this work <span className="grad-text">every day</span>, at volume.
             </h2>
             <p className="reveal">
-              I started my career in data — cleaning it, questioning it, and turning it into
-              answers people could actually use. These days I take that same curiosity and build
-              with it: web apps, automations, and AI-powered tools.
+              I&apos;m an analytics engineer. dbt, Dagster, DLT, Python, Streamlit — the modern
+              stack, in production, against real data volume. Not a course I took. The job I do.
             </p>
             <p className="reveal">
-              When I&apos;m not building, I&apos;m with my family or behind a bow. I believe the
-              best tools are the ones that quietly disappear into your day and just <em>work</em>.
+              Most dbt consultants are dbt-only and wave their hands at orchestration and
+              ingestion. I cover the whole pipeline, and I can speak to what it takes to get a
+              warehouse genuinely ready for AI work on top of it — which is mostly the unglamorous
+              part: structure, tests, and lineage you can trust.
+            </p>
+            <p className="reveal">
+              You get me. Not an account manager, not a junior doing the actual reading. One
+              person, one invoice, two engagements at a time — so the work stays sharp.
             </p>
             <div className="stats-row">
               <div className="stat reveal">
-                <span className="stat-num mono" data-count="25" data-suffix="+">
-                  0
-                </span>
-                <span className="stat-label">public repos</span>
+                <span className="stat-num mono">1</span>
+                <span className="stat-label">week per teardown</span>
               </div>
               <div className="stat reveal">
-                <span className="stat-num mono" data-count="100" data-suffix="%">
-                  0
-                </span>
-                <span className="stat-label">hand-built</span>
+                <span className="stat-num mono">2</span>
+                <span className="stat-label">clients at a time</span>
               </div>
               <div className="stat reveal">
-                <span className="stat-num mono">∞</span>
-                <span className="stat-label">curiosity</span>
+                <span className="stat-num mono">0</span>
+                <span className="stat-label">hourly billing</span>
               </div>
             </div>
           </div>

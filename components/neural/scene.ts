@@ -21,31 +21,37 @@ export type CamState = {
 };
 
 // Hand-placed so camera poses are deterministic.
-// First 7 are section neurons (hero..contact); the rest are background filler.
+// First 9 are section neurons, in page order:
+//   0 hero · 1 fit · 2 work · 3 scope · 4 about · 5 chart · 6 projects
+//   7 studio · 8 contact
+// The rest are background filler that give the brain depth.
 export const NEURONS: { pos: [number, number, number]; scale: number; major: boolean }[] = [
   { pos: [0, 0, 0],       scale: 1.0,  major: true },  // 0 hero
-  { pos: [-9, 3, -6],     scale: 0.7,  major: true },  // 1 about
-  { pos: [7, 6, -10],     scale: 0.6,  major: true },  // 2 chart
-  { pos: [11, -3, -4],    scale: 0.75, major: true },  // 3 work
-  { pos: [3, -7, -12],    scale: 0.85, major: true },  // 4 projects
-  { pos: [-6, -5, -18],   scale: 0.9,  major: true },  // 5 studio
-  { pos: [-2, 8, -14],    scale: 0.65, major: true },  // 6 contact
-  { pos: [-14, -2, -12],  scale: 0.35, major: false },
-  { pos: [14, 4, -16],    scale: 0.3,  major: false },
-  { pos: [6, 12, -20],    scale: 0.4,  major: false },
-  { pos: [-11, 9, -22],   scale: 0.3,  major: false },
-  { pos: [16, -8, -14],   scale: 0.35, major: false },
-  { pos: [-4, -12, -8],   scale: 0.3,  major: false },
-  { pos: [9, -1, -24],    scale: 0.4,  major: false },
-  { pos: [-16, 2, -26],   scale: 0.3,  major: false },
+  { pos: [-9, 3, -6],     scale: 0.7,  major: true },  // 1 fit
+  { pos: [7, 6, -10],     scale: 0.65, major: true },  // 2 work
+  { pos: [11, -3, -5],    scale: 0.75, major: true },  // 3 scope
+  { pos: [3, -8, -12],    scale: 0.7,  major: true },  // 4 about
+  { pos: [-5, -7, -16],   scale: 0.6,  major: true },  // 5 chart
+  { pos: [10, 4, -19],    scale: 0.8,  major: true },  // 6 projects
+  { pos: [-9, 1, -23],    scale: 0.9,  major: true },  // 7 studio
+  { pos: [-2, 9, -15],    scale: 0.65, major: true },  // 8 contact
+  { pos: [-15, -3, -12],  scale: 0.35, major: false },
+  { pos: [15, 5, -15],    scale: 0.3,  major: false },
+  { pos: [5, 13, -21],    scale: 0.4,  major: false },
+  { pos: [-12, 10, -24],  scale: 0.3,  major: false },
+  { pos: [17, -9, -16],   scale: 0.35, major: false },
+  { pos: [-4, -13, -9],   scale: 0.3,  major: false },
+  { pos: [8, -2, -26],    scale: 0.4,  major: false },
+  { pos: [-17, 3, -28],   scale: 0.3,  major: false },
 ];
 
-// Axons: consecutive section neurons always connected (the journey path),
-// plus a few cross-links and filler hookups for brain-ness.
+// Axons: consecutive section neurons always connected (the journey path, so a
+// signal train always has a route), plus cross-links and filler hookups.
 const AXONS: [number, number][] = [
-  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0],
-  [0, 3], [1, 6], [2, 6], [4, 12], [3, 11], [1, 7], [5, 7],
-  [2, 9], [6, 10], [5, 13], [0, 12], [3, 8], [9, 13], [7, 14],
+  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 0],
+  [0, 3], [1, 8], [2, 6], [4, 7], [3, 5],
+  [1, 9], [2, 10], [6, 11], [7, 12], [3, 13], [4, 14], [6, 15], [7, 16],
+  [9, 14], [11, 12], [10, 15],
 ];
 
 const CORE_R = 1;

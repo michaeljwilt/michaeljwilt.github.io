@@ -1,6 +1,10 @@
 # michaelwilt — personal site
 
-Personal website for Michael Wilt — builder, data guy, dad.
+Personal site for Michael Wilt — analytics engineer. Sells **The dbt Teardown**:
+a one-week, fixed-price review of a team's dbt project.
+
+Solo venture under his own name — deliberately separate from Brilliant Disruptions
+(which gets its own clearly-labelled section) and from the day job.
 
 ## Stack
 
@@ -22,11 +26,19 @@ npm run build    # production build
 
 ```
 app/            layout (fonts, metadata), page, globals.css, icon
-components/     one component per section + Cursor, Background, MotionRoot
-lib/            content data (projects, services, socials) and chart geometry
+components/     one per section + Cursor, NeuralBackground, MotionRoot, Terminal
+components/neural/  the Three.js brain (scene.ts) and its shared handle (store.ts)
+lib/            all site copy (tiers, scope, deliverables, fit) and chart geometry
 public/assets/  images
 ```
 
 `components/MotionRoot.tsx` is the motion engine: Lenis + ScrollTrigger wiring,
-reveals, marquees, magnetic elements, tilt cards, the pinned horizontal gallery,
-and scroll-progress. Content edits usually live in `lib/data.ts`.
+reveals, marquee, magnetic elements, tilt cards, scroll-progress.
+
+`components/neural/scene.ts` is the brain — neurons, axons, and signal pulses,
+ported from the JARVIS visual. `NeuralBackground.tsx` maps each page section to
+a neuron and flies the camera between them on scroll; its `SECTIONS` array must
+stay in sync with the section IDs rendered in `app/page.tsx`.
+
+**Almost all copy lives in `lib/data.ts`** — prices, scope, deliverables, fit
+criteria. Change it there, not in the components.

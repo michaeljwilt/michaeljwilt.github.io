@@ -51,7 +51,7 @@ export default function ObsessionChart() {
   };
 
   return (
-    <section className="section chart-section" id="chart">
+    <section className="section scrim chart-section" id="chart">
       <div className="container">
         <p className="section-label mono">
           {'// DATA NEVER LIES'}

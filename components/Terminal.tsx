@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { projects, services, socials, EMAIL } from '@/lib/data';
+import { tiers, teardownScope, idealClient, socials, EMAIL } from '@/lib/data';
 
 type Line = { kind: 'cmd' | 'out' | 'accent'; text: string };
 
 const BANNER: Line[] = [
-  { kind: 'accent', text: 'mw-shell v1.0 — the AI builder’s site is itself an AI artifact.' },
+  { kind: 'accent', text: 'mw-shell v1.0 — analytics engineering, on the side, done properly.' },
   { kind: 'out', text: "Type 'help' to see what I can do. Esc to close." },
 ];
 
@@ -16,48 +16,62 @@ function runCommand(raw: string): Line[] {
     case 'help':
       return [
         { kind: 'out', text: 'available commands:' },
-        { kind: 'out', text: '  whoami      who is this guy' },
-        { kind: 'out', text: '  projects    things I have built' },
-        { kind: 'out', text: '  work        side work I take on' },
-        { kind: 'out', text: '  socials     where to find me' },
+        { kind: 'out', text: '  whoami      who is doing the work' },
+        { kind: 'out', text: '  teardown    what the dbt teardown covers' },
+        { kind: 'out', text: '  pricing     the offer ladder' },
+        { kind: 'out', text: '  fit         who this works best for' },
         { kind: 'out', text: '  studio      about Brilliant Disruptions' },
-        { kind: 'out', text: '  contact     get in touch' },
+        { kind: 'out', text: '  contact     book the free 20-minute look' },
         { kind: 'out', text: '  clear       wipe the screen' },
         { kind: 'out', text: '  exit        close the terminal (or press Esc)' },
       ];
     case 'whoami':
       return [
-        { kind: 'accent', text: 'Michael Wilt' },
-        { kind: 'out', text: 'Data analyst turned AI-first builder.' },
-        { kind: 'out', text: 'Husband · Father · Archer · Data Enthusiast' },
-        { kind: 'out', text: 'I build useful things with data, code, and AI.' },
+        { kind: 'accent', text: 'Michael Wilt — analytics engineer' },
+        { kind: 'out', text: 'dbt · Dagster · DLT · Python · Streamlit, in production, daily.' },
+        { kind: 'out', text: 'One-week teardowns of dbt projects. Two clients at a time.' },
+        { kind: 'out', text: 'Husband · Father · Archer.' },
       ];
-    case 'projects':
-      return projects.map((p) => ({
+    case 'teardown':
+      return [
+        { kind: 'accent', text: 'The dbt Teardown — one week, $2,500 intro' },
+        ...teardownScope.map((s) => ({
+          kind: 'out' as const,
+          text: `  · ${s.title} — ${s.desc}`,
+        })),
+        { kind: 'out', text: '' },
+        { kind: 'out', text: 'You keep: a prioritized fix list, a recorded walkthrough,' },
+        { kind: 'out', text: 'and a 30-day remediation roadmap.' },
+      ];
+    case 'pricing':
+      return tiers.map((t) => ({
         kind: 'out' as const,
-        text: `  ${p.title}  —  ${p.href}`,
+        text: `  [${t.num}] ${t.name} — ${t.price}`,
       }));
-    case 'work':
-      return services.map((s) => ({
-        kind: 'out' as const,
-        text: `  [${s.num}] ${s.name} — ${s.desc}`,
-      }));
-    case 'socials':
-      return socials.map((s) => ({ kind: 'out' as const, text: `  ${s.label}: ${s.href}` }));
+    case 'fit':
+      return [
+        { kind: 'accent', text: 'This works best for:' },
+        ...idealClient.map((c) => ({ kind: 'out' as const, text: `  · ${c}` })),
+        { kind: 'out', text: '' },
+        { kind: 'out', text: 'Less than a year of dbt in prod? Probably not worth paying me yet.' },
+      ];
     case 'studio':
       return [
         { kind: 'accent', text: 'Brilliant Disruptions — AI-First Software Studio' },
-        { kind: 'out', text: 'Building the software the world doesn’t know it needs yet.' },
+        { kind: 'out', text: 'Separate entity, run with two partners. Full builds live there.' },
         { kind: 'out', text: 'https://brilliantdisruptions.com' },
       ];
     case 'contact':
       return [
         { kind: 'out', text: `email: ${EMAIL}` },
-        { kind: 'out', text: 'Replies within 24h. Usually faster.' },
+        { kind: 'out', text: 'Ask for the free 20-minute look. Replies within 24h.' },
+        ...socials.map((s) => ({ kind: 'out' as const, text: `  ${s.label}: ${s.href}` })),
       ];
     case 'sudo':
     case 'sudo su':
       return [{ kind: 'out', text: 'nice try. this incident will be reported (to my kids).' }];
+    case 'dbt run':
+      return [{ kind: 'out', text: 'Completed successfully. (in 4 minutes. we should talk.)' }];
     case '':
       return [];
     default:

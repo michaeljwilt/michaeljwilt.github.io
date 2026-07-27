@@ -2,6 +2,7 @@
 
 import gsap from 'gsap';
 import SplitChars from './SplitChars';
+import { BOOK_HREF } from '@/lib/data';
 
 export default function Hero() {
   const looseArrow = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -31,10 +32,10 @@ export default function Hero() {
       <div className="container hero-inner">
         <div className="avail-badge reveal">
           <span className="avail-dot" aria-hidden="true" />
-          Open for side projects
+          Two client slots open · intro pricing
         </div>
-        <p className="section-label mono scramble" data-text="// HELLO, I'M">
-          {"// HELLO, I'M"}
+        <p className="section-label mono scramble" data-text="// ANALYTICS ENGINEERING">
+          {'// ANALYTICS ENGINEERING'}
         </p>
         <h1 className="hero-headline" aria-label="Michael Wilt">
           <span className="split-line">
@@ -49,22 +50,26 @@ export default function Hero() {
           </span>
         </h1>
         <p className="hero-sub reveal">
-          I build useful things with <strong>data, code, and AI</strong> — websites, dashboards,
-          and tools that make life and work a little better.
+          I help teams fix <strong>slow, expensive, and fragile dbt projects</strong> — and get
+          their data AI-ready.
+        </p>
+        <p className="hero-kicker reveal">
+          One-week teardowns. Most teams find out their warehouse bill is several times what it
+          needs to be, and that half their models aren&apos;t tested.
         </p>
         <p className="hero-tags mono reveal">
           Husband · Father ·{' '}
           <button className="tag-egg" title="Click me" onClick={looseArrow}>
             Archer
           </button>{' '}
-          · Data Enthusiast
+          · dbt · Dagster · DLT · Python
         </p>
         <div className="hero-actions reveal">
-          <a href="#work" className="btn btn-solid anchor" data-magnetic>
-            Work with me
+          <a href={BOOK_HREF} className="btn btn-solid" data-magnetic>
+            Book the free 20-minute look
           </a>
-          <a href="#projects" className="btn btn-ghost anchor" data-magnetic>
-            See my projects
+          <a href="#work" className="btn btn-ghost anchor" data-magnetic>
+            See what it costs
           </a>
         </div>
       </div>
