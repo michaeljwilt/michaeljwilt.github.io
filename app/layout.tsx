@@ -35,10 +35,35 @@ export const metadata: Metadata = {
   },
 };
 
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Michael Wilt',
+  jobTitle: 'Data Analyst & AI-First Builder',
+  email: 'mailto:michaeljwilt@outlook.com',
+  url: 'https://michaeljwilt.github.io',
+  sameAs: [
+    'https://github.com/michaeljwilt',
+    'https://www.linkedin.com/in/michaeljwilt/',
+    'https://public.tableau.com/app/profile/michaeljwilt',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Brilliant Disruptions',
+    url: 'https://brilliantdisruptions.com',
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </body>
     </html>
   );
 }
