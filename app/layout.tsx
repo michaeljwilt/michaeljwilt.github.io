@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Michael Wilt',
     description: 'I build useful things with data, code, and AI.',
     type: 'website',
-    url: 'https://michaeljwilt.github.io',
+    url: 'https://michaelwilt.online',
   },
 };
 
@@ -41,7 +41,7 @@ const personSchema = {
   name: 'Michael Wilt',
   jobTitle: 'Data Analyst & AI-First Builder',
   email: 'mailto:michaeljwilt@outlook.com',
-  url: 'https://michaeljwilt.github.io',
+  url: 'https://michaelwilt.online',
   sameAs: [
     'https://github.com/michaeljwilt',
     'https://www.linkedin.com/in/michaeljwilt/',
